@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Temple Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="temple-name">அருள்மிகு தண்டாயுதபாணி சுவாமி திருக்கோவில், பழனி</h1>
+    <div class="temple-image" aria-hidden="true">
+      <div class="img-placeholder">Image space</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="auth-section" class="card">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label>Username <input type="text" id="login-username" required></label>
+        <label>Email <input type="email" id="login-email" required></label>
+        <label>Password <input type="password" id="login-password" required></label>
+        <div class="form-actions">
+          <button type="submit">Login</button>
+          <button type="button" id="show-register">Register</button>
+        </div>
+      </form>
+      <div id="auth-msg" class="msg"></div>
+    </section>
+
+    <section id="app-section" class="card hidden">
+      <div class="top-row">
+        <h2>Welcome, <span id="user-display"></span></h2>
+        <button id="logout">Logout</button>
+      </div>
+
+      <div class="booking-panel">
+        <h3>Room Booking</h3>
+        <form id="booking-form">
+          <label>Room
+            <select id="room-select">
+              <option value="mini">Mini Hall (Rs.700)</option>
+              <option value="big">Big Hall (Rs.1500)</option>
+              <option value="outdoor">Outdoor (Rs.1200)</option>
+            </select>
+          </label>
+          <label>From <input type="datetime-local" id="from-dt" required></label>
+          <label>To <input type="datetime-local" id="to-dt" required></label>
+          <fieldset>
+            <legend>Pooja Booking</legend>
+            <label><input type="checkbox" value="golden_ratham" class="pooja"> Golden Ratham Booking</label>
+            <label><input type="checkbox" value="thai_poosam" class="pooja"> Thai Poosam Booking</label>
+            <label><input type="checkbox" value="daily_abizhekam" class="pooja"> Daily Abizhekam</label>
+          </fieldset>
+          <div class="form-actions">
+            <button type="submit">Book</button>
+            <button type="button" id="update-booking" class="hidden">Update</button>
+            <button type="button" id="reset-form">Reset</button>
+          </div>
+        </form>
+        <div id="booking-msg" class="msg"></div>
+      </div>
+
+      <div class="donation-panel">
+        <h3>Donation</h3>
+        <label>Amount <input type="number" id="donation-amount" min="1" required></label>
+        <label>Purpose
+          <select id="donation-purpose">
+            <option value="food">Food</option>
+            <option value="pooja_products">Pooja products</option>
+            <option value="vestment_jewels">Vestment and Jewels</option>
+            <option value="others">Others</option>
+          </select>
+        </label>
+        <div class="form-actions">
+          <button id="show-qr">Pay (Show QR)</button>
+        </div>
+        <div id="donation-msg" class="msg"></div>
+      </div>
+
+      <div class="bookings-list card">
+        <h3>Your Bookings</h3>
+        <ul id="bookings"></ul>
+      </div>
+    </section>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal hidden">
+      <div class="modal-content card">
+        <h3>Register</h3>
+        <form id="register-form">
+          <label>Username <input id="reg-username" required></label>
+          <label>Email <input id="reg-email" type="email" required></label>
+          <label>Password <input id="reg-password" type="password" required></label>
+          <div class="form-actions">
+            <button type="submit">Create Account</button>
+            <button type="button" id="close-register">Close</button>
+          </div>
+        </form>
+        <div id="register-msg" class="msg"></div>
+      </div>
+    </div>
+
+    <!-- QR / Payment modal -->
+    <div id="qr-modal" class="modal hidden">
+      <div class="modal-content card">
+        <h3>Scan QR to Pay</h3>
+        <div class="qr-placeholder">
+          <!-- Dummy SVG QR -->
+          <svg width="160" height="160" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" fill="#eee"/>
+            <rect x="10" y="10" width="20" height="20" fill="#000"/>
+            <rect x="70" y="10" width="20" height="20" fill="#000"/>
+            <rect x="10" y="70" width="20" height="20" fill="#000"/>
+            <rect x="40" y="40" width="10" height="10" fill="#000"/>
+            <rect x="55" y="55" width="6" height="6" fill="#000"/>
+          </svg>
+        </div>
+        <p id="qr-info"></p>
+        <div class="form-actions">
+          <button id="confirm-pay">I have paid</button>
+          <button id="close-qr">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
