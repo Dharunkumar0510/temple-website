@@ -1,0 +1,24 @@
+:root{--accent:#7b3fe4;--muted:#666}
+*{box-sizing:border-box;font-family:Inter,system-ui,Arial,Helvetica,sans-serif}
+body{margin:0;background:#f6f7fb;color:#222}
+.container{max-width:980px;margin:20px auto;padding:16px}
+.site-header{background:#fff;padding:18px 16px;border-bottom:4px solid var(--accent);text-align:center}
+.temple-name{margin:0;font-size:20px}
+.temple-image{margin-top:10px}
+.img-placeholder{height:120px;background:linear-gradient(135deg,#eee,#ddd);display:flex;align-items:center;justify-content:center;color:#999}
+.card{background:#fff;padding:14px;margin:12px 0;border-radius:8px;box-shadow:0 1px 4px rgba(16,24,40,.06)}
+.hidden{display:none}
+form label{display:block;margin:8px 0}
+input,select{padding:8px;border:1px solid #ddd;border-radius:6px;width:100%}
+.form-actions{display:flex;gap:8px;margin-top:10px}
+button{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}
+button.secondary{background:#ccc;color:#111}
+.msg{margin-top:8px;color:var(--muted)}
+.top-row{display:flex;justify-content:space-between;align-items:center}
+.bookings-list ul{list-style:none;padding:0;margin:0}
+.bookings-list li{padding:8px;border-bottom:1px dashed #eee;display:flex;justify-content:space-between;align-items:center}
+.booking-meta{font-size:13px;color:#444}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;padding:16px}
+.modal-content{width:100%;max-width:520px}
+.qr-placeholder{display:flex;align-items:center;justify-content:center;margin:10px 0}
+@media(min-width:760px){.temple-name{font-size:24px}.container{padding:24px}}
